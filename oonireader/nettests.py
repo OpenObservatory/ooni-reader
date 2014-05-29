@@ -17,6 +17,10 @@ class HTTPRequests(HTTPT):
         if self.experiment_failure is not None and \
                 self.control_failure is None:
             return True
+        if not self.body_length_match:
+            return True
+        if not self.headers_match:
+            return True
         return False
 
 
