@@ -119,5 +119,9 @@ def run():
                         nargs='+')
     args = parser.parse_args()
 
+    if args.format != 'csv':
+        print "Currently only CSV format is supported!"
+        sys.exit(1)
+
     report_reader = ReportReader(args.reports, args.output)
     report_reader.process_reports()
